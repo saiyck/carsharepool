@@ -24,6 +24,7 @@ const DashBoard:FC<Props> = (props) => {
        <Ionicons name="ios-person-circle" size={40} color={Colors.GRAY}/>
        </TouchableOpacity>  
       <Text style={styles.title}>Find a ride</Text>
+
       <View style={styles.searchContainer}>
         <TextInput placeholder='Leaving from...'/>
         <View style={styles.line}/>
@@ -48,9 +49,14 @@ const DashBoard:FC<Props> = (props) => {
           <Text style={{marginLeft:5,fontSize:18}}>{count}</Text>
          </View>
         </View>
+        <View style={styles.buttonsContainer}>
         <TouchableOpacity onPress={()=> navigation.navigate("Available")} style={styles.searchButon}>
           <Text style={{color:Colors.secondary}}>Search</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={()=> navigation.navigate("Available")} style={styles.searchButon}>
+          <Text style={{color:Colors.secondary}}>Post</Text>
+        </TouchableOpacity>
+        </View>
       </View>
 
      <View style={styles.secondContainer}>
@@ -62,7 +68,7 @@ const DashBoard:FC<Props> = (props) => {
       }}>Recent Searches</Text>
       {data.map(()=><SearchHistory onPressHistory={()=> navigation.navigate("Available")}/>)}
       </View> 
-      <AddPassengerPopup onPressContinue={(coun:any)=> {
+      <AddPassengerPopup setShowModal={setShowModal} onPressContinue={(coun:any)=> {
         setShowModal(false)
         setCount(coun)
         }} showModal={showModal}/>
@@ -95,7 +101,8 @@ const styles = StyleSheet.create({
       backgroundColor:Colors.secondary,
       borderRadius:8,
       paddingHorizontal:wp(5),
-      alignSelf:'center'
+      alignSelf:'center',
+      paddingBottom:hp(1)
     },
     line:{
       width:wp(80),
@@ -123,9 +130,11 @@ const styles = StyleSheet.create({
       paddingVertical:hp(1),
       justifyContent:'center',
       alignItems:'center',
-      marginTop:hp(1),
-      width:wp(90),
+      marginTop:hp(2),
+      width:wp(35),
       alignSelf:'center',
+      borderTopLeftRadius:8,
+      borderTopRightRadius:8,
       borderBottomLeftRadius:8,
       borderBottomRightRadius:8
     },
@@ -142,5 +151,10 @@ const styles = StyleSheet.create({
     profileContainer:{
       alignItems:'flex-end',
       margin:10
+    },
+    buttonsContainer:{
+      flexDirection:'row',
+      alignItems:'center',
+      justifyContent:'space-between'
     }
 })

@@ -15,6 +15,7 @@ const Entry: FC<Props> = ({navigation}) => {
   React.useEffect(()=> {
    console.log('userData',userData)
   },[])
+  
   return (
     <View style={styles.container}>
         <Text style={styles.text}>CSU Car Share Pool</Text>

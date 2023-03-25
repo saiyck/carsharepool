@@ -7,3 +7,10 @@ export const loginUser= async(data:any)=> {
  console.log('loginResponse',response)
  return response;
 }
+
+export const signupUser = async(data:any)=> {
+ let url = BASE_URL + APIURLS.SIGNUP_USER;
+ let response = await Api(url,'POST',data);
+ console.log('signupResponse',response)
+ return response;
+}

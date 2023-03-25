@@ -16,13 +16,13 @@ export const Api= async (url:string, method:string, data: any)=> {
   return new Promise(async(resolve,reject)=> {
    await fetch(url,obj)
    .then((response)=>response.json())
-   .catch((err)=>{
-    console.log('err',err)
-    reject(err)
-   } )
    .then((response)=> {
     console.log(response)
     resolve(response)
+   })
+   .catch((err)=>{
+    console.log('err',err)
+    reject(err)
    })
   })
 }

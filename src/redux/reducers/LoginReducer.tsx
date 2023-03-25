@@ -1,4 +1,4 @@
-import { LOGIN_USER, SAVE_USER } from "../types/LoginActionTypes"
+import { LOGIN_USER, SAVE_USER,LOGOUT_USER } from "../types/LoginActionTypes"
 
 const initialState = {
   userData : {},
@@ -14,7 +14,7 @@ export default (state=initialState,action:any)=> {
             userData : action.payload,
             isLoggedIn: true
         }
-    case LOGIN_USER:
+    case LOGOUT_USER:
         return {
             ...state,
             userData : action.payload,

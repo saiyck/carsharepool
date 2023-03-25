@@ -8,14 +8,15 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 type Props = {
 //  route: any
 showModal: boolean,
-onPressContinue : any
+onPressContinue : any,
+setShowModal: any
 }
 
 
 
 const AddPassengerPopup: FC<Props> = (props) => {
     // const {passCount} = props.route.params;
-    const {showModal,onPressContinue} = props;
+    const {showModal,onPressContinue,setShowModal} = props;
     const [count,setCount] = useState(0);
 
 
@@ -42,7 +43,9 @@ const AddPassengerPopup: FC<Props> = (props) => {
 
             <View style={styles.modalView}>
             <View style={{flexDirection:'row',alignItems:'center'}}>
+            <TouchableOpacity onPress={()=> setShowModal(false)}>  
             <MaterialIcons name='keyboard-arrow-left' size={35} color={Colors.GRAY}/>
+            </TouchableOpacity>
             <Text style={{fontSize:16}}>1 passenger</Text>
             </View>    
            

@@ -1,4 +1,4 @@
-import { LOGIN_USER, SAVE_USER } from "../types/LoginActionTypes"
+import { LOGIN_USER, SAVE_USER,LOGOUT_USER } from "../types/LoginActionTypes"
 
 export const saveUserDetails=(data: any)=> {
   return {
@@ -9,7 +9,7 @@ export const saveUserDetails=(data: any)=> {
 
 export const logoutUser= () => {
     return {
-        type:LOGIN_USER,
+        type:LOGOUT_USER,
         payload:{}
     }
 }
